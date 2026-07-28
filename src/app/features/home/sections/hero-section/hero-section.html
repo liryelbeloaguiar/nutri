@@ -1,0 +1,33 @@
+<section id="inicio" class="hero">
+  <div class="hero-accent" aria-hidden="true"></div>
+  <div class="hero-visual" aria-hidden="true">
+    <span class="hero-visual-ring"></span>
+    <img src="morango-png.webp" alt="" />
+    <span class="hero-note"><app-icon name="heart" /> Cuidado que cabe na rotina</span>
+  </div>
+  <div class="container hero-content">
+    <p class="eyebrow light">{{ content.eyebrow }}</p>
+    <h1>
+      {{ content.titleStart }} <em>{{ content.titleEmphasis }}</em> {{ content.titleEnd }}
+    </h1>
+    <p class="hero-lead">{{ content.description }}</p>
+    <div class="hero-actions">
+      <a class="button button-gold" href="#contato">
+        Agende uma consulta <app-icon name="arrow" />
+      </a>
+      <a class="text-link light-link" href="#sobre">
+        Conheça o acompanhamento <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+    <div class="hero-proof">
+      <div>
+        <strong>{{ experience.value }}</strong>
+        <span>{{ experience.label }}</span>
+      </div>
+      <div>
+        <strong>{{ professionalCouncil }}</strong>
+        <span>atuação profissional</span>
+      </div>
+    </div>
+  </div>
+</section>

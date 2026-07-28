@@ -1,0 +1,106 @@
+<form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <div class="form-heading">
+    <span>Primeiro contato</span>
+    <h3>Agende sua consulta</h3>
+    <p>Preencha seus dados e conte qual é o seu principal objetivo.</p>
+  </div>
+  <div class="form-grid">
+    <div class="field">
+      <label for="name">Nome completo</label>
+      <input
+        id="name"
+        formControlName="name"
+        autocomplete="name"
+        placeholder="Como podemos chamar você?"
+        [attr.aria-invalid]="invalid('name')"
+        aria-describedby="name-error"
+      />
+      @if (invalid('name')) {
+        <small id="name-error">Informe seu nome completo.</small>
+      }
+    </div>
+    <div class="field">
+      <label for="phone">Telefone</label>
+      <input
+        id="phone"
+        formControlName="phone"
+        inputmode="tel"
+        autocomplete="tel"
+        placeholder="(11) 99999-9999"
+        [attr.aria-invalid]="invalid('phone')"
+        aria-describedby="phone-error"
+      />
+      @if (invalid('phone')) {
+        <small id="phone-error">Informe um telefone válido.</small>
+      }
+    </div>
+    <div class="field full">
+      <label for="email">E-mail</label>
+      <input
+        id="email"
+        formControlName="email"
+        type="email"
+        autocomplete="email"
+        placeholder="voce@exemplo.com"
+        [attr.aria-invalid]="invalid('email')"
+        aria-describedby="email-error"
+      />
+      @if (invalid('email')) {
+        <small id="email-error">Informe um e-mail válido.</small>
+      }
+    </div>
+    <div class="field full">
+      <label for="area">Objetivo do acompanhamento</label>
+      <select
+        id="area"
+        formControlName="area"
+        [attr.aria-invalid]="invalid('area')"
+        aria-describedby="area-error"
+      >
+        <option value="">Selecione uma opção</option>
+        @for (area of practiceAreas; track area.title) {
+          <option [value]="area.title">{{ area.title }}</option>
+        }
+      </select>
+      @if (invalid('area')) {
+        <small id="area-error">Selecione uma opção.</small>
+      }
+    </div>
+    <div class="field full">
+      <label for="message">Conte um pouco sobre seu objetivo <span>(opcional)</span></label>
+      <textarea
+        id="message"
+        formControlName="message"
+        rows="5"
+        placeholder="Ex.: quero melhorar minha disposição e organizar as refeições."
+        [attr.aria-invalid]="invalid('message')"
+        aria-describedby="message-error"
+      ></textarea>
+      @if (invalid('message')) {
+        <small id="message-error">A mensagem deve ter no máximo 1.000 caracteres.</small>
+      }
+    </div>
+    <label class="consent full">
+      <input type="checkbox" formControlName="consent" aria-describedby="consent-error" />
+      <span>Autorizo o envio destes dados para o WhatsApp informado acima.</span>
+    </label>
+    @if (invalid('consent')) {
+      <small id="consent-error" class="consent-error full">
+        É necessário autorizar o retorno do contato.
+      </small>
+    }
+  </div>
+  <button class="button button-primary submit" type="submit" [disabled]="status() === 'sending'">
+    {{ status() === 'sending' ? 'Enviando…' : 'Enviar solicitação' }}
+  </button>
+  @if (status() === 'accepted') {
+    <p class="form-status" role="status">
+      O WhatsApp foi aberto com sua mensagem pronta para conferência e envio.
+    </p>
+  }
+  @if (status() === 'error') {
+    <p class="form-status form-status-error" role="alert">
+      Não foi possível processar a solicitação. Tente novamente ou utilize um dos canais de contato.
+    </p>
+  }
+</form>

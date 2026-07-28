@@ -1,0 +1,22 @@
+<section id="areas" class="section section-tint">
+  <div class="container">
+    <div class="section-heading centered">
+      <p class="eyebrow">ESPECIALIDADES</p>
+      <h2>Cuidado nutricional para cada fase e objetivo</h2>
+      <p>Orientação baseada em evidências, construída de acordo com a sua realidade.</p>
+    </div>
+    <div class="areas-grid">
+      @for (area of areas; track area.title; let index = $index) {
+        <article class="area-card">
+          <span class="card-number">0{{ index + 1 }}</span>
+          <span class="area-icon"><app-icon [name]="area.icon" /></span>
+          <h3>{{ area.title }}</h3>
+          <p>{{ area.description }}</p>
+          <a href="#contato" [attr.aria-label]="'Solicitar atendimento em ' + area.title">
+            Quero saber mais <span aria-hidden="true">→</span>
+          </a>
+        </article>
+      }
+    </div>
+  </div>
+</section>

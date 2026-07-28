@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Informe o domínio final antes da publicação do sitemap.

@@ -1,0 +1,27 @@
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <a class="footer-brand" href="#inicio">
+        <span aria-hidden="true"><app-icon name="leaf" /></span>
+        {{ content.profile.shortName }}
+      </a>
+      <p>Nutrição com ciência, escuta e escolhas possíveis para uma vida mais saudável.</p>
+    </div>
+    <div>
+      <h3>Navegação</h3>
+      @for (item of content.navigation.slice(1); track item.href) {
+        <a [href]="item.href">{{ item.label }}</a>
+      }
+    </div>
+    <div>
+      <h3>Contato</h3>
+      <a [href]="content.profile.phoneHref">{{ content.profile.phone }}</a>
+      <a [href]="'mailto:' + content.profile.email">{{ content.profile.email }}</a>
+      <p>{{ content.profile.location }}</p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© {{ year }} Ricardo Mendes Nutrição. Todos os direitos reservados.</span>
+    <span>{{ content.profile.professionalRegistry }}</span>
+  </div>
+</footer>

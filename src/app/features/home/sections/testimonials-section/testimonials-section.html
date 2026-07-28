@@ -1,0 +1,26 @@
+<section id="depoimentos" class="section testimonials">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">DEPOIMENTOS</p>
+      <h2>Mudanças reais, construídas no dia a dia</h2>
+    </div>
+    <div class="testimonial-grid">
+      @for (testimonial of testimonials; track testimonial.name) {
+        <article class="testimonial-card">
+          <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <blockquote>“{{ testimonial.quote }}”</blockquote>
+          <div class="client">
+            <span>{{ testimonial.name.charAt(0) }}</span>
+            <p>
+              <strong>{{ testimonial.name }}</strong>
+              <small>{{ testimonial.role }}</small>
+            </p>
+          </div>
+        </article>
+      }
+    </div>
+    <p class="testimonial-note">
+      Nomes apresentados de forma abreviada para preservar a privacidade dos pacientes.
+    </p>
+  </div>
+</section>

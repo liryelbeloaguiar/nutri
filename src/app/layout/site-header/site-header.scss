@@ -1,0 +1,111 @@
+:host {
+  display: block;
+}
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 20;
+  height: var(--header-height);
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+}
+.header-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--navy);
+  text-decoration: none;
+  line-height: 1;
+}
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 2.65rem;
+  height: 2.65rem;
+  border-radius: 0.85rem 0.85rem 0.85rem 0.2rem;
+  background: var(--navy);
+  color: white;
+}
+.brand strong {
+  font: 800 1.15rem var(--font-display);
+  display: block;
+}
+.brand small {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.63rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.menu-toggle {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--navy);
+}
+.navigation {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--header-height);
+  display: none;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem var(--gutter) 1.25rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.navigation.open {
+  display: flex;
+}
+.navigation > a:not(.button) {
+  padding: 0.8rem;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+.header-cta {
+  margin-top: 0.5rem;
+}
+@media (min-width: 64rem) {
+  .brand strong {
+    font-size: 1.4rem;
+  }
+  .menu-toggle {
+    display: none;
+  }
+  .navigation {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+  }
+  .navigation > a:not(.button) {
+    padding: 0.5rem 0;
+    font-weight: 500;
+  }
+  .navigation > a:not(.button):hover {
+    color: #c94f40;
+  }
+  .header-cta {
+    margin: 0 0 0 0.5rem;
+  }
+}

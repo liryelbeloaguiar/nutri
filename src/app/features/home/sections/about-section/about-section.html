@@ -1,0 +1,29 @@
+<section id="sobre" class="section about">
+  <div class="container about-grid">
+    <div class="about-visual">
+      <div class="about-photo" role="img" aria-label="Seleção colorida de frutas frescas"></div>
+      <div class="about-badge">
+        <app-icon name="apple" />
+        <span><small>Atendimento</small><b>leve e individual</b></span>
+      </div>
+      <span class="registry-card"
+        ><b>{{ profile.professionalRegistry }}</b></span
+      >
+    </div>
+    <div class="about-copy">
+      <p class="eyebrow">SOBRE O NUTRICIONISTA</p>
+      <h2>Ciência e acolhimento para transformar hábitos com leveza</h2>
+      <p class="lead">{{ profile.biography[0] }}</p>
+      <p>{{ profile.biography[1] }}</p>
+      <div class="signature">{{ profile.shortName }} <span>Nutricionista</span></div>
+      <div class="stats" aria-label="Indicadores profissionais">
+        @for (stat of statistics; track stat.label) {
+          <div class="stat">
+            <strong>{{ stat.value }}</strong>
+            <span>{{ stat.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
